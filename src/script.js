@@ -1,3 +1,4 @@
+// need bundler like webpack or vite to do this? right now gives error
 import * as THREE from 'three';
 
 const scene = new THREE.Scene();
