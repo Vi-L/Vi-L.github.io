@@ -1,3 +1,3 @@
 # Vi-L.github.io
 
-Hello! This is my website.
+Hello, this is my website!
