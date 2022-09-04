@@ -1,5 +1,3 @@
 # Vi-L.github.io
 
-Hello world!
-
-foobar
+Hello! This is my website.
