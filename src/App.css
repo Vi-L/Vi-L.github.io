@@ -1,3 +1,10 @@
+.background {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
