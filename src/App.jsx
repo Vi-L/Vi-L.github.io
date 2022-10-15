@@ -7,11 +7,8 @@ import * as THREE from "three";
 
 function App() {
   const [width, height] = useWindowDimension();
-  const [count, setCount] = useState(0);
   const canvasContainerRef = useRef();
-  useEffect(() => 
-    renderScene()
-  , [width, height]);
+  useEffect(() => renderScene(), [width, height]);
 
   function renderScene() {
     const scene = new THREE.Scene();
@@ -37,7 +34,6 @@ function App() {
     light.position.set(10, 10, 10);
     scene.add(light);
 
-    
     function animate() {
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.01;
@@ -45,8 +41,7 @@ function App() {
       renderer.render(scene, camera);
     }
     let rafId = requestAnimationFrame(animate);
-    
-    
+
     return () => {
       renderer.forceContextLoss();
       renderer.dispose();
@@ -54,27 +49,45 @@ function App() {
       cube.material.dispose();
       cancelAnimationFrame(rafId);
       renderer.domElement.remove();
-    }
+    };
   }
+  let cards = [
+    {
+      title: "Sqlite Blog",
+      link: "https://sqlite-blog.glitch.me",
+      desc: "A blog website made with Express and Sqlite",
+    },
+    {
+      title: "Socketio Chat App",
+      link: "https://socketio-chat-app.glitch.me",
+      desc: "A real time chat app made with Socket.io",
+    },
+    {
+      title: "Cellular Automata JS",
+      link: "https://cellular-automata-js.glitch.me",
+      desc: "Cellular automata with a rule slider",
+    },
+    // {},
+    // {},
+    // {}
+  ];
 
   return (
     <div className="App">
-      <div ref={canvasContainerRef} className="background">
-
+      <div ref={canvasContainerRef} className="background"></div>
+      <h1>Victor's Portfolio</h1>
+      <div className="grid-wrapper">
+        {cards.map((card) => {
+          return (
+            <div key={card.title} className="card">
+              <a target="_blank" href={card.link}>
+                <h2>{card.title}</h2>
+                <p>{card.desc}</p>
+              </a>
+            </div>
+          );
+        })}
       </div>
-      
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
 }
