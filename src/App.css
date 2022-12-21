@@ -12,6 +12,10 @@ body {
   margin: 0;
 }
 
+canvas {
+  background: transparent;
+}
+
 #root {
   
   max-width: 1280px;
@@ -24,25 +28,34 @@ body {
   
 }
 
-.grid-wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+.flex-wrapper {
+  display: flex;
+
 }
 
-@media screen and (max-width: 600px) {
-  .grid-wrapper {
-    display: block;
-  }
-  .card {
-    width: 100%;
-    margin-top: 1em;
-  }
+.card-column {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
 }
 
 .card {
   border-radius: 10px;
   padding-top: 1em;
+  margin: 1em;
   background: #61dafbaa;
+}
+
+@media screen and (max-width: 750px) {
+  .flex-wrapper {
+    display: block;
+  }
+  .card {
+    width: 100%;
+    margin: 0;
+    margin-top: 1em;
+  }
+  .card-column {
+    width: 100%;
+  }
 }

@@ -1,7 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { useWindowDimension } from "./use-window-dimension";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
+
+import Card from "./Card"
+
+import socketioappSS from "./assets/socketiochatappSS.png";
+import sqliteblogSS from "./assets/sqliteblogSS.png";
+import cellularautomataSS from "./assets/cellularautomataSS.png";
 
 import * as THREE from "three";
 
@@ -51,23 +56,43 @@ function App() {
       renderer.domElement.remove();
     };
   }
-  let cards = [
+  let cards = [ // TODO: fix images, e.g. chop off sqliteblog try to get widths of 750px
     {
       title: "Sqlite Blog",
       link: "https://sqlite-blog.glitch.me",
-      desc: "A blog website made with Express and Sqlite",
+      img: sqliteblogSS,
+      desc: "A blog website made with Express and Sqlite"
     },
     {
       title: "Socketio Chat App",
       link: "https://socketio-chat-app.glitch.me",
-      desc: "A real time chat app made with Socket.io",
+      img: socketioappSS,
+      desc: "A real time chat app made with Socket.io"
     },
     {
       title: "Cellular Automata JS",
       link: "https://cellular-automata-js.glitch.me",
-      desc: "Cellular automata with a rule slider",
+      img: cellularautomataSS, 
+      desc: "Cellular automata with a rule slider"
     },
-    // {},
+    {
+      title: "test",
+      link: "",
+      img: sqliteblogSS,
+      desc: "foobarrrrrrr"
+    },
+    {
+      title: "test1",
+      link: "",
+      img: "https://placekitten.com/200/300",
+      desc: "foobarrrrrrr"
+    },
+    {
+      title: "test2",
+      link: "",
+      img: "https://placekitten.com/200/500",
+      desc: "foobarrrrrrr"
+    },
     // {},
     // {}
   ];
@@ -76,17 +101,16 @@ function App() {
     <div className="App">
       <div ref={canvasContainerRef} className="background"></div>
       <h1>Victor's Portfolio</h1>
-      <div className="grid-wrapper">
-        {cards.map((card) => {
-          return (
-            <div key={card.title} className="card">
-              <a target="_blank" href={card.link}>
-                <h2>{card.title}</h2>
-                <p>{card.desc}</p>
-              </a>
-            </div>
-          );
-        })}
+      <div className="flex-wrapper">
+        <div className="card-column">
+          {cards.slice(0, 2).map((card) => <Card key={card.title} {...card}/>)}
+        </div>
+        <div className="card-column">
+          {cards.slice(2, 4).map((card) => <Card key={card.title} {...card}/>)}
+        </div>
+        <div className="card-column">
+          {cards.slice(4).map((card) => <Card key={card.title} {...card}/>)}
+        </div>
       </div>
     </div>
   );
