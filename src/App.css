@@ -1,9 +1,15 @@
+/* https://coolors.co/a03e99-e8e9eb-fe5f55-1c3041-053c5e */
+
 .background {
   top: 0;
   left: 0;
   position: fixed;
   z-index: -1;
   overflow: hidden;
+}
+
+.header {
+  margin-top: 85vh;
 }
 
 body {
@@ -43,7 +49,7 @@ canvas {
   border-radius: 10px;
   padding-top: 1em;
   margin: 1em;
-  background: #61dafbaa;
+  background: rgba(254, 95, 85, 0.8);
 }
 
 @media screen and (max-width: 750px) {

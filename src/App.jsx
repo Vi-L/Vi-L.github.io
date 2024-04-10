@@ -4,6 +4,7 @@ import "./App.css";
 
 import Card from "./Card"
 
+import whitecirclepng from "./assets/whitecircle.png"
 import socketioappSS from "./assets/socketiochatappSS.png";
 import sqliteblogSS from "./assets/sqliteblogSS.png";
 import cellularautomataSS from "./assets/cellularautomataSS.png";
@@ -14,6 +15,13 @@ function App() {
   const [width, height] = useWindowDimension();
   const canvasContainerRef = useRef();
   useEffect(() => renderScene(), [width, height]);
+
+  let mouseX = 0;
+  let mouseY = 0;
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
 
   function renderScene() {
     const scene = new THREE.Scene();
@@ -27,10 +35,33 @@ function App() {
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     canvasContainerRef.current.appendChild(renderer.domElement);
-    const geometry = new THREE.BoxGeometry(2, 1, 1);
-    const material = new THREE.MeshPhongMaterial({ color: 0x00ffff });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+
+    scene.background = new THREE.Color(0x1C3041);
+
+    // star background from this guide 
+    // https://medium.com/nerd-for-tech/adding-a-custom-star-field-background-with-three-js-79a1d18fd35d
+    const loader = new THREE.TextureLoader();
+    const geometry = new THREE.BufferGeometry();
+    const material = new THREE.PointsMaterial({
+      size: 1,
+      map: loader.load(
+        "https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp2.png"
+      ),
+      transparent: true
+    });
+    const getRandomParticelPos = (particleCount) => {
+      const arr = new Float32Array(particleCount * 3);
+      for (let i = 0; i < particleCount; i++) {
+        arr[i] = (Math.random() - 0.5) * 100;
+      }
+      return arr;
+    };
+    geometry.setAttribute(
+      "position",
+      new THREE.BufferAttribute(getRandomParticelPos(500), 3)
+    );
+    const stars = new THREE.Points(geometry, material);
+    scene.add(stars);
 
     camera.position.z = 5;
 
@@ -40,8 +71,11 @@ function App() {
     scene.add(light);
 
     function animate() {
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      stars.rotation.x = mouseY * 0.00075;
+      stars.rotation.y = mouseX * 0.00075;
+
+      stars.position.x = mouseY * 0.01;
+      stars.position.y = mouseX * 0.01;
       rafId = requestAnimationFrame(animate);
       renderer.render(scene, camera);
     }
@@ -50,13 +84,13 @@ function App() {
     return () => {
       renderer.forceContextLoss();
       renderer.dispose();
-      cube.geometry.dispose();
-      cube.material.dispose();
+      stars.geometry.dispose();
+      stars.material.dispose();
       cancelAnimationFrame(rafId);
       renderer.domElement.remove();
     };
   }
-  let cards = [ // TODO: fix images, e.g. chop off sqliteblog try to get widths of 750px
+  let cards = [ 
     {
       title: "Sqlite Blog",
       link: "https://sqlite-blog.glitch.me",
@@ -100,7 +134,7 @@ function App() {
   return (
     <div className="App">
       <div ref={canvasContainerRef} className="background"></div>
-      <h1>Victor's Portfolio</h1>
+      <h1 className="header">welcome.</h1>
       <div className="flex-wrapper">
         <div className="card-column">
           {cards.slice(0, 2).map((card) => <Card key={card.title} {...card}/>)}
