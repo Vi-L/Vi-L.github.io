@@ -17,13 +17,13 @@
 
 
 a, a:link, a:visited {
-  color: black;
+  color: #053C5E;
   font-weight: 500;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: white;
+  color: #E8E9EB;
 }
 
 img {

@@ -46,10 +46,11 @@ canvas {
 }
 
 .card {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 10px;
   padding-top: 1em;
   margin: 1em;
-  background: rgba(254, 95, 85, 0.8);
+  background: rgba(255, 122, 112, 0.75);
 }
 
 @media screen and (max-width: 750px) {

@@ -4,10 +4,12 @@ import "./App.css";
 
 import Card from "./Card"
 
-import whitecirclepng from "./assets/whitecircle.png"
 import socketioappSS from "./assets/socketiochatappSS.png";
 import sqliteblogSS from "./assets/sqliteblogSS.png";
 import cellularautomataSS from "./assets/cellularautomataSS.png";
+import raycastingSS from "./assets/raycastingSS.png";
+import conwaySS from "./assets/conwaySS.png";
+import ASCIIWebcamSS from "./assets/ASCIIWebcamSS.png";
 
 import * as THREE from "three";
 
@@ -110,22 +112,22 @@ function App() {
       desc: "Cellular automata with a rule slider"
     },
     {
-      title: "test",
-      link: "",
-      img: sqliteblogSS,
-      desc: "foobarrrrrrr"
+      title: "MatterJS Raycasting",
+      link: "https://replit.com/@VL-coder/matterjs-p5js-raycasting?v=1",
+      img: raycastingSS,
+      desc: "A Wolfenstein 3D-esque renderer made using MatterJS"
     },
     {
-      title: "test1",
-      link: "",
-      img: "https://placekitten.com/200/300",
-      desc: "foobarrrrrrr"
+      title: "Conway's Game of Life",
+      link: "https://conway-ca-js.glitch.me/",
+      img: conwaySS,
+      desc: "Conway's Game of Life made using p5.js"
     },
     {
-      title: "test2",
-      link: "",
-      img: "https://placekitten.com/200/500",
-      desc: "foobarrrrrrr"
+      title: "ASCII Webcam + ASCII Video Chat",
+      link: "https://webcam-to-ascii.glitch.me/",
+      img: ASCIIWebcamSS,
+      desc: "A live video chat, but with ASCII art"
     },
     // {},
     // {}
@@ -137,13 +139,13 @@ function App() {
       <h1 className="header">welcome.</h1>
       <div className="flex-wrapper">
         <div className="card-column">
-          {cards.slice(0, 2).map((card) => <Card key={card.title} {...card}/>)}
+          {cards.slice(0, cards.length / 3).map((card) => <Card key={card.title} {...card}/>)}
         </div>
         <div className="card-column">
-          {cards.slice(2, 4).map((card) => <Card key={card.title} {...card}/>)}
+          {cards.slice(cards.length / 3, 2 * cards.length / 3).map((card) => <Card key={card.title} {...card}/>)}
         </div>
         <div className="card-column">
-          {cards.slice(4).map((card) => <Card key={card.title} {...card}/>)}
+          {cards.slice(2 * cards.length / 3).map((card) => <Card key={card.title} {...card}/>)}
         </div>
       </div>
     </div>
