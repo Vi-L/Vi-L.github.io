@@ -12,6 +12,7 @@ import reactdrummachineSS from "./assets/reactdrummachineSS.png";
 import socketiochatappSS from "./assets/socketiochatappSS.png";
 import sqliteblogSS from "./assets/sqliteblogSS.png";
 import workshopslideSS from "./assets/workshopslideSS.png";
+import starSVG from "./assets/star.svg"
 
 import * as THREE from "three";
 
@@ -49,7 +50,8 @@ function App() {
     const material = new THREE.PointsMaterial({
       size: 1,
       map: loader.load(
-        "https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp2.png"
+        starSVG
+        //"https://raw.githubusercontent.com/Kuntal-Das/textures/main/sp2.png"
       ),
       transparent: true
     });
