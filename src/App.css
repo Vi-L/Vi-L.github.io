@@ -78,8 +78,9 @@ canvas {
     display: block;
   }
   .card {
-    width: 85%;
+    width: 75%;
     margin: 0.5em;
+    margin-left: 0em;
   }
   .card-column {
     width: 100%;
@@ -87,5 +88,9 @@ canvas {
 
   .break {
     height: 5em;
+  }
+
+  .img-container {
+    display: none;
   }
 }
