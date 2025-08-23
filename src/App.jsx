@@ -79,8 +79,8 @@ function App() {
     stars.position.y = 5;
 
     function animate() {
-      stars.rotation.x = mouseY * 0.00005;
-      stars.rotation.y = window.scrollY * 0.002 + mouseX * 0.00005;
+      camera.rotation.x = mouseY * -0.00005;
+      camera.rotation.y = window.scrollY * -0.002 + mouseX * -0.00005;
       
       rafId = requestAnimationFrame(animate);
       renderer.render(scene, camera);
