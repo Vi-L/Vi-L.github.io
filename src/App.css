@@ -1,0 +1,91 @@
+/* https://coolors.co/234342-e8e9eb-cbf6f3-1c3041-053c5e */
+
+.background {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.header {
+  margin-top: 85vh;
+}
+
+body {
+  padding: 1em;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+canvas {
+  background: transparent;
+}
+
+#root {
+  
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  
+}
+
+.flex-wrapper {
+  display: flex;
+
+}
+
+.card-column {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+}
+
+.card {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 10px;
+  padding: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 1em;
+  background: #053C5E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.halved {
+  width: 50%;
+}
+
+.break {
+  height: 24em;
+}
+
+.img-container {
+  position: relative;
+  width: 50%;
+  min-height: 50%;
+}
+
+@media screen and (max-width: 750px) {
+  .flex-wrapper {
+    display: block;
+  }
+  .card {
+    width: 85%;
+    margin: 0.5em;
+  }
+  .card-column {
+    width: 100%;
+  }
+
+  .break {
+    height: 5em;
+  }
+}
