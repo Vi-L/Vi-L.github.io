@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useWindowDimension } from "./use-window-dimension";
+import FadeInOnScroll from "./FadeInOnScroll";
 import "./App.css";
 
 import ASCIIWebcamSS from "./assets/ASCIIWebcamSS.png";
@@ -115,91 +116,99 @@ function App() {
 
       <div className="break"></div>
 
-      <div className="flex-wrapper">
-        <div className="img-container">
-          <img style={{top: "-2em", left: "0em"}} src={sqliteblogSS}></img>
-          <img style={{right: "4em"}} src={socketiochatappSS}></img>
-          <img style={{bottom: "0em", left: "2em"}} src={reactdrummachineSS}></img>
+      <FadeInOnScroll>
+        <div className="flex-wrapper">
+          <div className="img-container">
+            <img style={{top: "-2em", left: "0em"}} src={sqliteblogSS}></img>
+            <img style={{right: "4em"}} src={socketiochatappSS}></img>
+            <img style={{bottom: "0em", left: "2em"}} src={reactdrummachineSS}></img>
+          </div>
+          <div className="card halved">
+            <h3>Web Development</h3>
+            <p>
+              After learning the basics of programming with Python, I started learning HTML, CSS, and JavaScript to begin making 
+              websites. I made a classic <a href="https://github.com/Vi-L/sqlite-blog">blog website</a> to learn about full-stack 
+              development with Node, Express, and SQLite, 
+              as well as some more unique projects like a <a href="https://github.com/Vi-L/socketio-chat-app">real time chat app</a> with Socket.io and 
+              a <a href="https://github.com/Vi-L/react-drum-machine">drum machine</a> using React Hooks. 
+              I also had the opportunity to spend a summer with Code Tenderloin as a Web Design Intern, 
+              learning how to use Bootstrap to style my websites.
+            </p>
+          </div>
         </div>
-        <div className="card halved">
-          <h3>Web Development</h3>
-          <p>
-            After learning the basics of programming with Python, I started learning HTML, CSS, and JavaScript to begin making 
-            websites. I made a classic <a href="https://github.com/Vi-L/sqlite-blog">blog website</a> to learn about full-stack 
-            development with Node, Express, and SQLite, 
-            as well as some more unique projects like a <a href="https://github.com/Vi-L/socketio-chat-app">real time chat app</a> with Socket.io and 
-            a <a href="https://github.com/Vi-L/react-drum-machine">drum machine</a> using React Hooks. 
-            I also had the opportunity to spend a summer with Code Tenderloin as a Web Design Intern, 
-            learning how to use Bootstrap to style my websites.
-          </p>
-        </div>
-      </div>
+      </FadeInOnScroll>
 
       <div className="break"></div>
 
-      <div className="flex-wrapper">
-        <div className="img-container">
-          <img style={{left: "-2em", top: "5em"}} src={ASCIIWebcamSS}></img>
-          <img style={{bottom: "-3em", right: "1em"}} src={raycastingSS}></img>
-          <img style={{top: "-3em"}} src={conwaySS}></img>
+      <FadeInOnScroll>
+        <div className="flex-wrapper">
+          <div className="img-container">
+            <img style={{left: "-2em", top: "5em"}} src={ASCIIWebcamSS}></img>
+            <img style={{bottom: "-3em", right: "1em"}} src={raycastingSS}></img>
+            <img style={{top: "-3em"}} src={conwaySS}></img>
+          </div>
+          <div className="card halved">
+            <h3>Creative Coding</h3>
+            <p>
+              Using tools like Processing in Java, p5.js in JavaScript, and the Canvas API for HTML, 
+              I made visual projects that showcased the beauty of algorithms. 
+              I recreated well-known simulations 
+              like <a>Conway’s Game of Life</a>, <a>cellular automata</a>, 
+              and <a>boids</a>. I made some more fun projects too, 
+              like an <a>ASCII art webcam</a> and 
+              a <a>Wolfenstein 3D-style raycasting demo</a>. 
+              (Even this website makes use of Three.js for an animated background!)
+            </p>
+          </div>
         </div>
-        <div className="card halved">
-          <h3>Creative Coding</h3>
-          <p>
-            Using tools like Processing in Java, p5.js in JavaScript, and the Canvas API for HTML, 
-            I made visual projects that showcased the beauty of algorithms. 
-            I recreated well-known simulations 
-            like <a>Conway’s Game of Life</a>, <a>cellular automata</a>, 
-            and <a>boids</a>. I made some more fun projects too, 
-            like an <a>ASCII art webcam</a> and 
-            a <a>Wolfenstein 3D-style raycasting demo</a>. 
-            (Even this website makes use of Three.js for an animated background!)
-          </p>
-        </div>
-      </div>
+      </FadeInOnScroll>
 
       <div className="break"></div>
 
-      <div className="flex-wrapper">
-        <div className="img-container">
-          <img style={{top: "-1em", left: "-3em"}} src={lecturesampleSS}></img>
-          <img style={{bottom: "-1em", right: "0em", maxWidth: "60%"}} src={workshopslideSS}></img>
+      <FadeInOnScroll>
+        <div className="flex-wrapper">
+          <div className="img-container">
+            <img style={{top: "-1em", left: "-3em"}} src={lecturesampleSS}></img>
+            <img style={{bottom: "-1em", right: "0em", maxWidth: "60%"}} src={workshopslideSS}></img>
+          </div>
+          <div className="card halved">
+            <h3>Teaching</h3>
+            <p>
+              Throughout my computer science journey, I’ve also found ways to give back to my community and 
+              share my love for STEM. From volunteering for workshops at public libraries, 
+              to teaching Scratch and Python to 
+              youth as a Lead Code Coach at <a href="https://www.thecoderschool.com/locations/sf-westportal/">theCoderSchool SF</a>, to 
+              hosting events at UC Davis as 
+              a member of the <a href="https://www.instagram.com/asucd_stem/">ASUCD STEM Committee</a>, I’ve 
+              been able to practice my communication skills and inspire others to find fun in learning.
+            </p>
+          </div>
         </div>
-        <div className="card halved">
-          <h3>Teaching</h3>
-          <p>
-            Throughout my computer science journey, I’ve also found ways to give back to my community and 
-            share my love for STEM. From volunteering for workshops at public libraries, 
-            to teaching Scratch and Python to 
-            youth as a Lead Code Coach at <a href="https://www.thecoderschool.com/locations/sf-westportal/">theCoderSchool SF</a>, to 
-            hosting events at UC Davis as 
-            a member of the <a href="https://www.instagram.com/asucd_stem/">ASUCD STEM Committee</a>, I’ve 
-            been able to practice my communication skills and inspire others to find fun in learning.
-          </p>
-        </div>
-      </div>
+      </FadeInOnScroll>
 
       <div className="break"></div>
 
-      <div className="flex-wrapper">
-        <div className="img-container">
-          <img style={{top: "-1em", right: "2em"}} src={controllerpcbSS}></img>
-          <img style={{left: "-1em", bottom: "0em"}} src={frcrobotSS}></img>
+      <FadeInOnScroll>
+        <div className="flex-wrapper">
+          <div className="img-container">
+            <img style={{top: "-1em", right: "2em"}} src={controllerpcbSS}></img>
+            <img style={{left: "-1em", bottom: "0em"}} src={frcrobotSS}></img>
+          </div>
+          <div className="card halved">
+            <h3>Engineering</h3>
+            <p>
+              Most recently, I have been applying my knowledge of computer science to physical hardware 
+              and working on tackling unique engineering challenges. 
+              In high school, I wired, programmed, and tested a robot through my 
+              school’s <a href="https://www.firstinspires.org/robotics/frc">FIRST Robotics Competition team</a>. Now, at UC Davis, I’m working 
+              on data collection and embedded programming for a fully electric race car as a 
+              Lead Firmware Engineer on the 
+              school’s <a href="https://www.sae.org/attend/student-events/about-formula">Formula SAE Competition team</a>. I’m also working on personal engineering projects with tools like 
+              KiCAD for PCB design and FreeCAD for 3D modelling.
+            </p>
+          </div>
         </div>
-        <div className="card halved">
-          <h3>Engineering</h3>
-          <p>
-            Most recently, I have been applying my knowledge of computer science to physical hardware 
-            and working on tackling unique engineering challenges. 
-            In high school, I wired, programmed, and tested a robot through my 
-            school’s <a href="https://www.firstinspires.org/robotics/frc">FIRST Robotics Competition team</a>. Now, at UC Davis, I’m working 
-            on data collection and embedded programming for a fully electric race car as a 
-            Lead Firmware Engineer on the 
-            school’s <a href="https://www.sae.org/attend/student-events/about-formula">Formula SAE Competition team</a>. I’m also working on personal engineering projects with tools like 
-            KiCAD for PCB design and FreeCAD for 3D modelling.
-          </p>
-        </div>
-      </div>
+      </FadeInOnScroll>
 
       <div className="break"></div>
 
